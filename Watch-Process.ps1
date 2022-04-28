@@ -38,8 +38,10 @@ function Watch-Process
             Select-Object -First $NumberOfProcesses |
             Foreach-Object {
                 $_.pstypenames.clear()
-                $_.pstypenames.add('Watch-Process.Top')
+                $_.pstypenames.add('Watch.Process.Top')
                 $_
             } 
+
+        Start-Sleep -Milliseconds $RefreshInterval.TotalMilliseconds
     } while ([Datetime]::now - $WatchUntil)
 }

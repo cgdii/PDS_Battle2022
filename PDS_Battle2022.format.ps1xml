@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-16"?>
+<!-- Generated with EZOut 1.8.5: Install-Module EZOut or https://github.com/StartAutomating/EZOut -->
+<Configuration>
+  <ViewDefinitions>
+    <View>
+      <Name>Watch.Process.Top</Name>
+      <ViewSelectedBy>
+        <TypeName>Watch.Process.Top</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>PID</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>VIRT</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>%CPU</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>%MEM</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>TIME+</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Command</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <ScriptBlock> $_.ID</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock> $_.VirtualMemorySize </ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock> if ($_.CPU) { $_.CPU.ToString('N')} else { }</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock> $_.WorkingSet</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock> [DateTime]::now - $_.StartTime</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <ScriptBlock> $_.CommandLine </ScriptBlock>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+  </ViewDefinitions>
+</Configuration>
