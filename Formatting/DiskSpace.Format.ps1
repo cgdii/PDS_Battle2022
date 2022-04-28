@@ -1,4 +1,4 @@
-Write-FormatView -TypeName DiskSpace -Property DEviceID, 'FreeSpace(MB)', 'Size(GB)', '%Free' -VirtualProperty @{
+Write-FormatView -TypeName DiskUsage -Property DEviceID, 'FreeSpace(MB)', 'Size(GB)', '%Free' -VirtualProperty @{
     'FreeSpace(MB)' = { ($_.FreeSpace / 1MB) -as [int] }
     'Size(GB)' = {($_.Size / 1GB) -as [int]}
     '%Free' = {($_.FreeSpace / $_.Size) * 100 -as [int] }
