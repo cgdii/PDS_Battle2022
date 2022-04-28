@@ -31,9 +31,12 @@ process{
         Write-verbose "The Total Space is $TotalSpace"
         $FreeSpace = $TotalSpace - $UsedSpace
         Write-verbose "The Free Space is $FreeSpace"
-        $ReturnObj = [ordered]@{ Total   = $TotalSpace
-                        Used    = $UsedSpace
-                        Free    = $FreeSpace }
+        $ReturnObj = [ordered]@{
+            PSTypeName = 'DiskSpace' 
+            Total   = $TotalSpace
+            Used    = $UsedSpace
+            Free    = $FreeSpace
+        }
         return $ReturnObj
     }
 }

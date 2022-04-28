@@ -28,7 +28,7 @@ Get-WmiObject -class Win32_LogicalDisk -computername $computername -filter "driv
  Sort-Object -property DeviceID |
  Foreach-Object {
     $_.pstypenames.clear()
-    $_.pstypenames.add('DiskSpace')
+    $_.pstypenames.add('DiskUsage')
     $_
  }
 }
