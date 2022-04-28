@@ -25,8 +25,9 @@ process{
         write-verbose "the space usage is as follows"
         $UsedSpace = 0
         foreach($Partition in $ListofParitions)
-            { $UsedSpace = $UsedSpace + $Partition.size
-            }
+        { 
+                $UsedSpace = $UsedSpace + $Partition.size
+        }
         Write-verbose "The Space used is $UsedSpace"
         Write-verbose "The Total Space is $TotalSpace"
         $FreeSpace = $TotalSpace - $UsedSpace
